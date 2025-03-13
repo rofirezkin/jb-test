@@ -6,11 +6,12 @@ import { SwiperClass } from "swiper/react";
 import Button from "@/components/button/button";
 import { useRouter } from "next/navigation";
 import LottieAnimation from "@/components/lottie-animation/lottie-animation";
-import SwipperText from "@/components/swiper-text/swiper-text";
+
 import Header from "@/components/header/header";
 import Input from "@/components/input/input";
 import { useFormik } from "formik";
 import * as yup from "yup";
+import dynamic from "next/dynamic";
 
 // Validation Schema
 const validationSchema = yup.object({
@@ -23,6 +24,13 @@ const validationSchema = yup.object({
     .email("Invalid email format")
     .required("Email is required"),
 });
+
+const SwipperText = dynamic(
+  () => import("@/components/swiper-text/swiper-text"),
+  {
+    ssr: false,
+  }
+);
 
 export default function Dashboard() {
   const [showSwiper, setShowSwiper] = useState(false);
