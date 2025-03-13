@@ -1,8 +1,25 @@
 @import "tailwindcss";
 
 :root {
-  --background: #ffffff;
-  --foreground: #171717;
+  --primary-color: #9b5de5;
+  --button-color: #9b5de5;
+  --secondary-color: #f15bb5;
+  --background-color: #0c0d10;
+  --text-color: #ffffff;
+
+  /* Font */
+  --font-main: "Inter", sans-serif;
+  --font-size-lg: 24px;
+  --font-size-md: 18px;
+  --font-size-sm: 14px;
+
+  /* Spacing */
+  --padding-lg: 16px;
+  --padding-md: 12px;
+  --padding-sm: 8px;
+
+  /* Border */
+  --border-radius: 8px;
 }
 
 @theme inline {
@@ -20,7 +37,30 @@
 }
 
 body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+  color: var(--text-color);
+}
+
+.gradient-color {
+  background: linear-gradient(90deg, #fabbff 0%, #b179ff 35%, #6dddff 83%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.mobile-container {
+  width: 390px;
+  max-width: 100%;
+  height: 100vh;
+  margin: 0 auto;
+  padding: 20px;
+  background: radial-gradient(circle, gray -90%, black 100%);
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  overflow: hidden;
+
+  align-items: center;
+}
+
+@media (max-width: 375px) {
+  .mobile-container {
+    width: 100%;
+  }
 }
