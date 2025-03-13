@@ -42,23 +42,19 @@ export default function Dashboard() {
 
   useEffect(() => {
     if (typeof window !== "undefined") {
-      console.log(document.title);
-    }
-  }, []);
+      gsap.fromTo(
+        ".hero-text",
+        { opacity: 0, y: 50 },
+        { opacity: 1, y: 0, duration: 1.2, ease: "power3.out" }
+      );
 
-  useEffect(() => {
-    gsap.fromTo(
-      ".hero-text",
-      { opacity: 0, y: 50 },
-      { opacity: 1, y: 0, duration: 1.2, ease: "power3.out" }
-    );
-
-    const lenis = new Lenis();
-    function raf(time: number) {
-      lenis.raf(time);
+      const lenis = new Lenis();
+      function raf(time: number) {
+        lenis.raf(time);
+        requestAnimationFrame(raf);
+      }
       requestAnimationFrame(raf);
     }
-    requestAnimationFrame(raf);
   }, []);
 
   const startSwiper = () => {
