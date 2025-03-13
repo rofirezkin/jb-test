@@ -41,6 +41,12 @@ export default function Dashboard() {
   });
 
   useEffect(() => {
+    if (typeof window !== "undefined") {
+      console.log(document.title);
+    }
+  }, []);
+
+  useEffect(() => {
     gsap.fromTo(
       ".hero-text",
       { opacity: 0, y: 50 },
@@ -55,7 +61,6 @@ export default function Dashboard() {
     requestAnimationFrame(raf);
   }, []);
 
-  // Animasi ketika masuk ke Swiper
   const startSwiper = () => {
     gsap.to(".lottie-animation", {
       scale: 0.5,
@@ -96,7 +101,6 @@ export default function Dashboard() {
     }
   };
 
-  // Fungsi untuk menangani tombol Back
   const handleBack = () => {
     if (showInput === "email") {
       setShowInput("firstName");
@@ -139,7 +143,6 @@ export default function Dashboard() {
     }
   };
 
-  // Fungsi untuk memulai input pertama
   const handleGetStarted = () => {
     gsap.to(".lottie-animation", {
       scale: 0.2,
