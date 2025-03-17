@@ -1,4 +1,5 @@
 "use client";
+
 import { useEffect, useRef, useState } from "react";
 import gsap from "gsap";
 import Lenis from "lenis";
@@ -13,7 +14,8 @@ import { useFormik } from "formik";
 import * as yup from "yup";
 import dynamic from "next/dynamic";
 
-// Validation Schema
+
+
 const validationSchema = yup.object({
   firstName: yup
     .string()
@@ -80,7 +82,6 @@ export default function Dashboard() {
     setShowSwiper(true);
   };
 
-  // Fungsi untuk melanjutkan ke input berikutnya
   const nextInputStep = () => {
     if (
       showInput === "firstName" &&
@@ -165,7 +166,7 @@ export default function Dashboard() {
     });
   };
 
-  // Fungsi untuk mendapatkan teks deskripsi input
+
   const getDescription = () => {
     switch (showInput) {
       case "firstName":
