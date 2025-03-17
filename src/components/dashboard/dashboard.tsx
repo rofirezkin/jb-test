@@ -6,15 +6,12 @@ import Lenis from "lenis";
 import { SwiperClass } from "swiper/react";
 import Button from "@/components/button/button";
 import { useRouter } from "next/navigation";
-import LottieAnimation from "@/components/lottie-animation/lottie-animation";
 
 import Header from "@/components/header/header";
 import Input from "@/components/input/input";
 import { useFormik } from "formik";
 import * as yup from "yup";
 import dynamic from "next/dynamic";
-
-
 
 const validationSchema = yup.object({
   firstName: yup
@@ -29,6 +26,12 @@ const validationSchema = yup.object({
 
 const SwipperText = dynamic(
   () => import("@/components/swiper-text/swiper-text"),
+  {
+    ssr: false,
+  }
+);
+const LottieAnimation = dynamic(
+  () => import("@/components/lottie-animation/lottie-animation"),
   {
     ssr: false,
   }
@@ -165,7 +168,6 @@ export default function Dashboard() {
       },
     });
   };
-
 
   const getDescription = () => {
     switch (showInput) {
